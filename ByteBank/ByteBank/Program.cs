@@ -1,4 +1,5 @@
-﻿using ByteBank.Funcionarios;
+﻿using ByteBank.Contas;
+using ByteBank.Funcionarios;
 using ByteBank.Sistemas;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,42 @@ namespace ByteBank
         {
             //CalcularBonificacao();
 
-            UsarSistema();
+            //UsarSistema();
+
+            try
+            {
+                Metodo();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadLine();
+        }
+
+        private static void Metodo()
+        {
+            TestaDivisao(0);
+        }
+
+        private static void TestaDivisao(int divisor)
+        {
+            int resultado = Dividir(10, divisor);
+            Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
+        }
+
+        private static int Dividir(int numero, int divisor)
+        {
+            try
+            {
+                return numero / divisor;
+            }
+            catch(DivideByZeroException)
+            {
+                Console.WriteLine("Exceção com numero = " + numero + " e divisor " + divisor);
+                throw;
+            }
         }
 
         public static void UsarSistema()
