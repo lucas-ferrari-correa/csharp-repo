@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{341AC4EA-9A97-45C7-B7A2-CB7DC9506A91}</ProjectGuid>
+    <ProjectGuid>{C5DEDD9E-2CB1-46A2-9F53-D5120CCC6A59}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ByteBank</RootNamespace>
-    <AssemblyName>ByteBank</AssemblyName>
+    <RootNamespace>ByteBank.SistemaAgencia</RootNamespace>
+    <AssemblyName>ByteBank.SistemaAgencia</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,27 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutenticacaoHelper.cs" />
-    <Compile Include="Contas\Cliente.cs" />
-    <Compile Include="Contas\ContaCorrente.cs" />
-    <Compile Include="Contas\LeitorDeArquivos.cs" />
-    <Compile Include="Contas\OperacaoFinanceiraException.cs" />
-    <Compile Include="Contas\SaldoInsuficienteException.cs" />
-    <Compile Include="Funcionarios\Auxiliar.cs" />
-    <Compile Include="Funcionarios\Designer.cs" />
-    <Compile Include="Funcionarios\Diretor.cs" />
-    <Compile Include="Funcionarios\Funcionario.cs" />
-    <Compile Include="Funcionarios\FuncionarioAutenticavel.cs" />
-    <Compile Include="Funcionarios\GerenteDeConta.cs" />
-    <Compile Include="GerenciadorBonificacao.cs" />
-    <Compile Include="ParceiroComercial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sistemas\IAutenticavel.cs" />
-    <Compile Include="Sistemas\SistemaInterno.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByteBank.Modelos\ByteBank.Modelos.csproj">
+      <Project>{376D1D71-5AF6-4DF9-BB1D-EF660F429875}</Project>
+      <Name>ByteBank.Modelos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

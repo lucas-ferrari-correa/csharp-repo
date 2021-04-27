@@ -1,11 +1,11 @@
-﻿using ByteBank.Sistemas;
+﻿using ByteBank.Modelos.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank
+namespace ByteBank.Modelos
 {
     public class ParceiroComercial : IAutenticavel
     {
