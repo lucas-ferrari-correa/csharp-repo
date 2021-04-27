@@ -14,37 +14,14 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            DateTime dataFimPagamento = new DateTime(2021, 5, 29);
-            DateTime dataCorrente = DateTime.Now;
+            string url = "pagina?argumentos";
 
-            TimeSpan diferenca = dataFimPagamento - dataCorrente;
-
-            Console.WriteLine("Vencimento em " + TimeSpanHumanizeExtensions.Humanize(diferenca));
+            Console.WriteLine(url);
+            
+            string argumentos = url.Substring(6);
+            Console.WriteLine(argumentos);
 
             Console.ReadLine();
         }
-
-        //static string GetIntervaloDeTempoLegivel(TimeSpan timeSpan)
-        //{
-        //    if (timeSpan.Days > 30)
-        //    {
-        //        int quantidadeMeses = timeSpan.Days / 30;
-                
-        //        if (quantidadeMeses == 1)
-        //        {
-        //            return "1 mês";
-        //        }
-
-        //        return quantidadeMeses + " meses";
-        //    }
-
-        //    if (timeSpan.Days > 7)
-        //    {
-        //        int quantidadeSemanas = timeSpan.Days / 7;
-        //        return quantidadeSemanas + " semanas";
-        //    }
-
-        //    return timeSpan.Days + " dias";
-        //}
     }
 }
