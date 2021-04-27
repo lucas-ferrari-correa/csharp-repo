@@ -1,6 +1,7 @@
 ﻿using ByteBank.Modelos;
 using ByteBank.Modelos.Contas;
 using ByteBank.Modelos.Funcionarios;
+using Humanizer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,37 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            ContaCorrente conta = new ContaCorrente(847, 489754);
-            Funcionario funcionario = null;
+            DateTime dataFimPagamento = new DateTime(2021, 5, 29);
+            DateTime dataCorrente = DateTime.Now;
 
-            Console.WriteLine(conta.Numero);
+            TimeSpan diferenca = dataFimPagamento - dataCorrente;
+
+            Console.WriteLine("Vencimento em " + TimeSpanHumanizeExtensions.Humanize(diferenca));
 
             Console.ReadLine();
         }
+
+        //static string GetIntervaloDeTempoLegivel(TimeSpan timeSpan)
+        //{
+        //    if (timeSpan.Days > 30)
+        //    {
+        //        int quantidadeMeses = timeSpan.Days / 30;
+                
+        //        if (quantidadeMeses == 1)
+        //        {
+        //            return "1 mês";
+        //        }
+
+        //        return quantidadeMeses + " meses";
+        //    }
+
+        //    if (timeSpan.Days > 7)
+        //    {
+        //        int quantidadeSemanas = timeSpan.Days / 7;
+        //        return quantidadeSemanas + " semanas";
+        //    }
+
+        //    return timeSpan.Days + " dias";
+        //}
     }
 }

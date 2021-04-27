@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5DEDD9E-2CB1-46A2-9F53-D5120CCC6A59}</ProjectGuid>
+    <ProjectGuid>{C5F6E29C-83F3-47DA-B73A-0C397763BEAA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ByteBank.SistemaAgencia</RootNamespace>
-    <AssemblyName>ByteBank.SistemaAgencia</AssemblyName>
+    <RootNamespace>ByteBank.SistemaInterno</RootNamespace>
+    <AssemblyName>ByteBank.SistemaInterno</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Humanizer, Version=2.9.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Humanizer.Core.2.9.9\lib\netstandard2.0\Humanizer.dll</HintPath>
+    <Reference Include="ByteBank.Modelos">
+      <HintPath>..\..\..\..\..\..\Bibliotecas\ByteBank.Modelos.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,19 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Estagiario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ByteBank.Modelos\ByteBank.Modelos.csproj">
-      <Project>{376D1D71-5AF6-4DF9-BB1D-EF660F429875}</Project>
-      <Name>ByteBank.Modelos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
