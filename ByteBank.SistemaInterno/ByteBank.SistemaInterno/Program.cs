@@ -14,6 +14,8 @@ namespace ByteBank.SistemaInterno
             ContaCorrente conta = new ContaCorrente(4587, 4558779);
             Console.WriteLine(conta.Saldo);
 
+            conta.Sacar(-10);
+
             Console.ReadLine();
         }
     }
