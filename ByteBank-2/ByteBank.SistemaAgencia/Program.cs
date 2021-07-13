@@ -15,37 +15,27 @@ namespace ByteBank.SistemaAgencia
             // pagina?argumentos
             // 012345678
 
-            string palavra = "moedaDestino=real";
-            int indice = palavra.IndexOf("real");
-            Console.WriteLine(indice);
-            Console.ReadLine();
+            //string palavra = "moedaDestino=real";
+            //int indice = palavra.IndexOf("real");
+            //Console.WriteLine(indice);
+            //Console.ReadLine();
 
-            string textoVazio = "";
-            string textoNulo = null;
-            string textoQualquer = "kjhfsdjhgsdfjksdf";
-
-
-            Console.WriteLine(String.IsNullOrEmpty(textoVazio));
-            Console.WriteLine(String.IsNullOrEmpty(textoNulo));
-            Console.WriteLine(String.IsNullOrEmpty(textoQualquer));
-            Console.ReadLine();
+            //string textoVazio = "";
+            //string textoNulo = null;
+            //string textoQualquer = "kjhfsdjhgsdfjksdf";
 
 
+            //Console.WriteLine(String.IsNullOrEmpty(textoVazio));
+            //Console.WriteLine(String.IsNullOrEmpty(textoNulo));
+            //Console.WriteLine(String.IsNullOrEmpty(textoQualquer));
+            //Console.ReadLine();
 
-
-
-
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
 
             string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
+            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(url);
 
-            int indiceInterrogacao = url.IndexOf('?');
-
-            Console.WriteLine(indiceInterrogacao);
-
-            Console.WriteLine(url);
-            string argumentos = url.Substring(indiceInterrogacao + 1);
-            Console.WriteLine(argumentos);
+            string valor = extrator.GetValor("moedaOrigem");
+            Console.WriteLine("Valor de moedaOrigem: " + valor);
 
 
             Console.ReadLine();
