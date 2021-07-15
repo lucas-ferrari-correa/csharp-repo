@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Estagiario.cs" />
     <Compile Include="ExtratorValorDeArgumentosURL.cs" />
+    <Compile Include="ListaDeContaCorrente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
