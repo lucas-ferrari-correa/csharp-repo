@@ -12,33 +12,45 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            // pagina?argumentos
-            // 012345678
+            ContaCorrente[] contas = new ContaCorrente[]
+                {
+                    new ContaCorrente(874, 5679787),
+                    new ContaCorrente(874, 4445556),
+                    new ContaCorrente(874, 6659877)
+                };
 
-            //string palavra = "moedaDestino=real";
-            //int indice = palavra.IndexOf("real");
-            //Console.WriteLine(indice);
-            //Console.ReadLine();
-
-            //string textoVazio = "";
-            //string textoNulo = null;
-            //string textoQualquer = "kjhfsdjhgsdfjksdf";
-
-
-            //Console.WriteLine(String.IsNullOrEmpty(textoVazio));
-            //Console.WriteLine(String.IsNullOrEmpty(textoNulo));
-            //Console.WriteLine(String.IsNullOrEmpty(textoQualquer));
-            //Console.ReadLine();
-
-
-            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(url);
-
-            string valor = extrator.GetValor("moedaOrigem");
-            Console.WriteLine("Valor de moedaOrigem: " + valor);
+            for (int indice = 0; indice < contas.Length; indice++)
+            {
+                ContaCorrente contaAtual = contas[indice];
+                Console.WriteLine($"Conta {indice} {contaAtual.Numero}");
+            }
 
 
             Console.ReadLine();
+        }
+
+        static void TestaArrayInt()
+        {
+            int[] idades = new int[5];
+            idades[0] = 15;
+            idades[1] = 28;
+            idades[2] = 35;
+            idades[3] = 50;
+            idades[4] = 28;
+
+            int acumulador = 0;
+            for (int indice = 0; indice < idades.Length; indice++)
+            {
+                int idade = idades[indice];
+
+                Console.WriteLine($"Acessando o array idades no índice {indice}");
+                Console.WriteLine($"Valor de idades[{indice}] = {idade}");
+
+                acumulador += idade;
+            }
+
+            int media = acumulador / idades.Length;
+            Console.WriteLine($"Média de idades = {media}");
         }
     }
 
