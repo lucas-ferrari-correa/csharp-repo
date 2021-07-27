@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Extensoes;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -12,7 +13,25 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            Lista<int> idades = new Lista<int>();
+            List<int> idades = new List<int>();
+
+            idades.Add(1);
+            idades.Add(5);
+            idades.Add(14);
+            idades.Add(25);
+            idades.Add(38);
+            idades.Add(61);
+
+            //idades.Remove(5);
+
+            idades.AdicionarVarios(1, 568, 5665);
+
+            foreach (int item in idades)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadLine();
         }
 
         static void TestaArrayDeContaCorrente()
