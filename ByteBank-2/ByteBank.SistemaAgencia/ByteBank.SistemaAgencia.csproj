@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estagiario.cs" />
+    <Compile Include="Extensoes\Comparadores\ComparadorContaCorrentePorAgencia.cs" />
     <Compile Include="Extensoes\ListExtensoes.cs" />
     <Compile Include="ExtratorValorDeArgumentosURL.cs" />
     <Compile Include="Lista.cs" />
