@@ -1,31 +1,39 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Alura.WebAPI.Api.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
+    [ApiController]
     [Authorize]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/livros")]
-    public class LivrosController : ControllerBase
+    public class Livros2Controller : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
 
-        public LivrosController(IRepository<Livro> repository)
+        public Livros2Controller(IRepository<Livro> repository)
         {
             _repo = repository;
         }
 
         [HttpGet]
-        public IActionResult ListaDeLivros()
+        public IActionResult ListaDeLivros(
+            [FromQuery] LivroFiltro filtro,
+            [FromQuery] LivroOrdem ordem,
+            [FromQuery] LivroPaginacao paginacao
+        )
         {
-            var lista = _repo.All.Select(l => l.ToApi()).ToList();
-            return Ok(lista);
+            var livroPaginado = _repo.All
+                    .AplicaFiltro(filtro)
+                    .AplicaOrdem(ordem)
+                    .Select(l => l.ToApi())
+                    .ToLivroPaginado(paginacao);
+
+            return Ok(livroPaginado);
         }
 
         [HttpGet("{id}")]
@@ -36,7 +44,7 @@ namespace Alura.ListaLeitura.Api.Controllers
             {
                 return NotFound();
             }
-            return Ok(model.ToApi());
+            return Ok(model);
         }
 
         [HttpGet("{id}/capa")]
