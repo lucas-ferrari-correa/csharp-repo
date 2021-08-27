@@ -68,13 +68,13 @@ namespace Alura.ListaLeitura.Api.Controllers
             {
                 var livro = model.ToLivro();
                 _repo.Incluir(livro);
-
+                
                 var uri = Url.Action("Recuperar", new { id = livro.Id });
 
                 return Created(uri, livro);
             }
 
-            return BadRequest();
+            return BadRequest(ErrorResponse.FromModelState(ModelState));
         }
 
         [HttpPut]
