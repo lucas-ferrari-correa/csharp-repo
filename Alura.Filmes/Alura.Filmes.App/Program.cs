@@ -17,17 +17,18 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var filme = contexto.Filmes
-                    .Include(f => f.Atores)
-                    .ThenInclude(fa => fa.Ator)
-                    .First();
+                var idiomas = contexto.Idiomas
+                    .Include(i => i.FilmesFalados);
 
-                Console.WriteLine(filme);
-                Console.WriteLine("Elenco");
-
-                foreach (var ator in filme.Atores)
+                foreach (var idioma in idiomas)
                 {
-                    Console.WriteLine(ator.Ator);
+                    Console.WriteLine(idioma);
+
+                    foreach (var filme in idioma.FilmesFalados)
+                    {
+                        Console.WriteLine(filme);
+                    }
+                    Console.WriteLine("\n");
                 }
 
                 System.Console.ReadLine();
