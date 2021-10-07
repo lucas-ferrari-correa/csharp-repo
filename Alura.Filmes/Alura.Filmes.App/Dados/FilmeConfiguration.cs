@@ -32,6 +32,14 @@ namespace Alura.Filmes.App.Dados
                 .HasColumnType("text");
 
             builder
+                .Property(f => f.TextoClassificacao)
+                .HasColumnName("rating")
+                .HasColumnType("varchar(10)");
+
+            builder
+                .Ignore(f => f.Classificacao);
+
+            builder
                 .Property(f => f.AnoLancamento)
                 .HasColumnName("release_year")
                 .HasColumnType("varchar(4)");

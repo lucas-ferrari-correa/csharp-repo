@@ -42,6 +42,8 @@ namespace Alura.Filmes.App.Dados
                 .HasIndex(a => a.UltimoNome)
                 .HasName("idx_actor_last_name");
 
+            builder
+                .HasAlternateKey(a => new { a.PrimeiroNome, a.UltimoNome });
         }
     }
 }

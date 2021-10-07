@@ -17,19 +17,19 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var idiomas = contexto.Idiomas
-                    .Include(i => i.FilmesFalados);
+                var filme = new Filme();
+                filme.Titulo = "Senhor dos Anel";
+                filme.Duracao = 120;
+                filme.AnoLancamento = "2000";
+                filme.Classificacao = ClassificacaoIndicativa.Livre;
+                filme.IdiomaFalado = contexto.Idiomas.First();
+                contexto.Entry(filme).Property("last_update").CurrentValue = DateTime.Now;
 
-                foreach (var idioma in idiomas)
-                {
-                    Console.WriteLine(idioma);
+                contexto.Filmes.Add(filme);
+                contexto.SaveChanges();
 
-                    foreach (var filme in idioma.FilmesFalados)
-                    {
-                        Console.WriteLine(filme);
-                    }
-                    Console.WriteLine("\n");
-                }
+                var filmeInserido = contexto.Filmes.First(f => f.Titulo == "Senhor dos Anel");
+                Console.WriteLine(filmeInserido.Classificacao);
 
                 System.Console.ReadLine();
             }
