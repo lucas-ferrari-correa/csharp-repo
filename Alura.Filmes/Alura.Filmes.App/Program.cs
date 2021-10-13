@@ -17,16 +17,13 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                Console.WriteLine("Clientes:");
-                foreach (var cliente in contexto.Clientes)
+                var atoresMaisAtuantes = contexto.Atores
+                    .Include(a => a.Filmografia)
+                    .OrderByDescending(a => a.Filmografia.Count)
+                    .Take(5);
+                foreach (var ator in atoresMaisAtuantes)
                 {
-                    Console.WriteLine(cliente.ToString());
-                }
-
-                Console.WriteLine("Funcionarios:");
-                foreach (var func in contexto.Funcionarios)
-                {
-                    Console.WriteLine(func);
+                    Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
                 }
 
                 System.Console.ReadLine();
