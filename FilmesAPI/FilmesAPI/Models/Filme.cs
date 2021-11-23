@@ -25,5 +25,6 @@ namespace FilmesAPI.Models
         public int Duracao { get; set; }
         [JsonIgnore]
         public virtual List<Sessao> Sessoes { get; set; }
+        public int ClassificacaoEtaria { get; set; }
     }
 }
